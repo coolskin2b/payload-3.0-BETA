@@ -1,7 +1,8 @@
 import path from 'path'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { en } from 'payload/i18n/en'
-import Categories from "@/collections/Categories"
+import Categories from '@/collections/Categories'
+import Pages from '@/collections/Pages'
 import {
   AlignFeature,
   BlockQuoteFeature,
@@ -43,22 +44,6 @@ export default buildConfig({
       fields: [],
     },
     {
-      slug: 'pages',
-      admin: {
-        useAsTitle: 'title',
-      },
-      fields: [
-        {
-          name: 'title',
-          type: 'text',
-        },
-        {
-          name: 'content',
-          type: 'richText',
-        },
-      ],
-    },
-    {
       slug: 'media',
       upload: true,
       fields: [
@@ -69,6 +54,7 @@ export default buildConfig({
       ],
     },
     Categories,
+    Pages,
   ],
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
